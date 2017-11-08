@@ -8,11 +8,15 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
+import static android.R.transition.move;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button rockButton;
     private Button paperButton;
     private Button scissorsButton;
+    private Button spockButton;
+    private Button lizardButton;
     private Game game;
     private ArrayList<Moves> moves;
     private Integer playerScore;
@@ -27,30 +31,31 @@ public class MainActivity extends AppCompatActivity {
             moves.add(move);
         }
 
-
-
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
-        if (intent.hasExtra("playerScore")){
+        if (intent.hasExtra("playerScore")) {
             playerScore = extras.getInt("playerScore");
-        }else{
+        } else {
             playerScore = 0;
         }
-
 
         game = new Game(moves, playerScore);
 
         rockButton = (Button) findViewById(R.id.btnRock);
         paperButton = (Button) findViewById(R.id.btnPaper);
         scissorsButton = (Button) findViewById(R.id.btnScissors);
+        spockButton = (Button) findViewById(R.id.btnSpock);
+        lizardButton = (Button) findViewById(R.id.btnLizard);
+
     }
 
-    public void moveClicked(View button){
+    public void moveClicked(View button) {
         Moves playerMove = getButtonClicked(button);
         Moves computerMove = game.getComputerMove();
 
         String result = game.checkWin(playerMove, computerMove);
+
         String playerText = playerMove.getMoveName();
         String computerText = computerMove.getMoveName();
         Integer winCount = game.getWinCount();
@@ -65,24 +70,30 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public Moves getButtonClicked(View button){
+    public Moves getButtonClicked(View button) {
 
         Moves playerMove;
 
-        if(button == rockButton){
-           playerMove = Moves.ROCK;
+        if (button == rockButton) {
+            playerMove = Moves.ROCK;
 
-        }else if(button == paperButton){
+        } else if (button == paperButton) {
             playerMove = Moves.PAPER;
 
-        }else{
+        } else if (button == scissorsButton) {
             playerMove = Moves.SCISSORS;
+
+        } else if (button == spockButton) {
+            playerMove = Moves.SPOCK;
+
+        } else {
+            playerMove = Moves.LIZARD;
         }
 
         return playerMove;
+
+
     }
-
-
 
 
 }

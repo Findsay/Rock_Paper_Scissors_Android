@@ -1,28 +1,40 @@
 package com.example.fiona1.rockpaperscissors;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Created by Fiona1 on 08/11/2017.
  */
 
 public enum Moves {
 
-    ROCK("Rock", "Scissors"),
-    PAPER("Paper", "Rock"),
-    SCISSORS("Scissors", "Paper");
+    ROCK("Rock", "Scissors", "Lizard"),
+    PAPER("Paper", "Rock", "Spock"),
+    SCISSORS("Scissors", "Paper", "Lizard"),
+    LIZARD("Lizard", "Paper", "Spock"),
+    SPOCK("Spock", "Rock", "Scissors");
 
     private String moveName;
-    private String moveWin;
+    private String moveWin1;
+    private String moveWin2;
 
-    Moves(String moveName, String moveWin) {
+    Moves(String moveName, String moveWin1, String moveWin2) {
         this.moveName = moveName;
-        this.moveWin = moveWin;
+        this.moveWin1 = moveWin1;
+        this.moveWin2 = moveWin2;
     }
 
     public String getMoveName() {
         return moveName;
     }
 
-    public String getMoveWin() {
-        return moveWin;
+    public String getMoveWin1() {
+        return moveWin1;
     }
+
+    public String getMoveWin2() {
+        return moveWin2;
+    }
+
 }

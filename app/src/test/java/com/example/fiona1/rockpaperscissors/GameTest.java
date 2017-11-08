@@ -26,9 +26,7 @@ public class GameTest {
             moves.add(move);
         }
 
-        game = new Game(moves);
-
-
+        game = new Game(moves, 0);
     }
 
     @Test
@@ -40,7 +38,9 @@ public class GameTest {
     public void canReturnMoveAtIndex() throws Exception {
         Moves move = game.getMoveAtIndex(0);
         assertEquals("Rock", move.getMoveName());
-        assertEquals("Scissors", move.getMoveWin());
+        assertEquals("Scissors", move.getMoveWin1());
+        assertEquals("Lizard", move.getMoveWin2());
+
     }
 
     @Test
@@ -61,6 +61,13 @@ public class GameTest {
         String result = game.checkWin(playerMove, computerMove);
 
         assertEquals("You Win!", result);
+
+        Moves playerMove2 = Moves.LIZARD;
+        Moves computerMove2 = Moves.SPOCK;
+
+        String result2 = game.checkWin(playerMove2, computerMove2);
+
+        assertEquals("You Win!", result2);
 
     }
 

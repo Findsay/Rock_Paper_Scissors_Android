@@ -49,7 +49,8 @@ public class Game {
     public String checkWin(Moves playerMove, Moves computerMove){
         if(playerMove.getMoveName() == computerMove.getMoveName()){
             return "It's a draw!";
-        }else if(playerMove.getMoveName() == computerMove.getMoveWin()){
+        }else if(playerMove.getMoveName() == computerMove.getMoveWin1() ||
+                playerMove.getMoveName() == computerMove.getMoveWin2()){
             return "Bad Luck...Computer Wins!";
 
         }else{

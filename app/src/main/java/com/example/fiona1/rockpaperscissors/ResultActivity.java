@@ -60,8 +60,12 @@ public class ResultActivity extends AppCompatActivity {
                 return R.drawable.rock;
             case "Paper":
                 return R.drawable.paper;
+            case "Scissors":
+                return R.drawable.scissor;
+            case "Spock":
+                return R.drawable.spock;
             default:
-                return R.drawable.scissors;
+                return R.drawable.lizard;
         }
     }
 
