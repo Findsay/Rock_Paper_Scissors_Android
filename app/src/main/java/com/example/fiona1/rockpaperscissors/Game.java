@@ -13,9 +13,11 @@ import java.util.Random;
 public class Game {
 
     private ArrayList<Moves> moves;
+    private Integer winCount;
 
-    public Game(ArrayList<Moves> moves) {
+    public Game(ArrayList<Moves> moves, Integer winCount) {
         this.moves = moves;
+        this.winCount = winCount;
     }
 
     public ArrayList<Moves> getMoves() {
@@ -51,9 +53,16 @@ public class Game {
             return "Bad Luck...Computer Wins!";
 
         }else{
+            incrementWin();
             return "You Win!";
         }
     }
 
+    public void incrementWin(){
+        this.winCount++;
+    }
 
+    public Integer getWinCount() {
+        return winCount;
+    }
 }

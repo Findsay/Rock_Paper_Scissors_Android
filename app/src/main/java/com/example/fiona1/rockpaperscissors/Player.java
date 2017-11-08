@@ -6,19 +6,13 @@ package com.example.fiona1.rockpaperscissors;
 
 public class Player {
 
-    private String name;
-    private String moveName;
+    private int playerScore;
 
-    public Player(String name) {
-        this.name = name;
-        this.moveName = null;
+    public Player() {
+        playerScore = 0;
     }
 
-    public String getMoveName() {
-        return moveName;
-    }
-
-    public void setMoveName(String moveName) {
-        this.moveName = moveName;
+    public int getPlayerScore() {
+        return playerScore;
     }
 }
